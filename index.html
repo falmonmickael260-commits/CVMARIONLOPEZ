@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Marion Lopez — Livreuse de repas à domicile</title>
+<meta name="description" content="Marion Lopez, sérieuse, ponctuelle et autonome, à la recherche d'un poste de livreuse de repas à domicile à Montelier.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ivoire:#faf7f1;
+    --blanc-casse:#fffdf9;
+    --gris-clair:#e9e4da;
+    --gris-mid:#b8b2a4;
+    --anthracite:#232019;
+    --anthracite-soft:#39352c;
+    --accent:#bf6a3d;
+    --accent-deep:#a1552e;
+    --accent-soft:#e7bd9a;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --maxw:1180px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--ivoire);
+    color:var(--anthracite);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  body.no-scroll{overflow:hidden; height:100%;}
+
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  p{margin:0; line-height:1.6;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  section{position:relative;}
+  ::selection{background:var(--accent); color:var(--blanc-casse);}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding-inline:24px;
+  }
+  @media(min-width:768px){ .wrap{padding-inline:48px;} }
+  @media(min-width:1200px){ .wrap{padding-inline:64px;} }
+
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    font-size:.72rem;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--accent-deep);
+  }
+
+  /* ---------------------------------- */
+  /* LOADER                              */
+  /* ---------------------------------- */
+  #loader{
+    position:fixed; inset:0; z-index:9999;
+    background:var(--ivoire);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  #loader.hide{
+    animation: loaderOut .9s var(--ease) forwards;
+    pointer-events:none;
+  }
+  @keyframes loaderOut{
+    to{ opacity:0; transform:translateY(-3%); }
+  }
+
+  .loader-inner{
+    position:relative;
+    width:min(90vw, 620px);
+    text-align:center;
+  }
+
+  .loader-line-wrap{
+    position:absolute;
+    top:50%; left:50%;
+    width:140%;
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    z-index:0;
+  }
+  .loader-line-wrap svg{ width:100%; height:auto; display:block; }
+  .route-path{
+    fill:none;
+    stroke:var(--accent);
+    stroke-width:1.4;
+    stroke-linecap:round;
+    stroke-dasharray:900;
+    stroke-dashoffset:900;
+    opacity:.55;
+    animation: drawRoute 2.6s var(--ease) forwards;
+    animation-delay:.15s;
+  }
+  @keyframes drawRoute{
+    to{ stroke-dashoffset:0; }
+  }
+
+  .loader-name{
+    position:relative; z-index:1;
+    font-size:clamp(2.6rem, 10vw, 5.2rem);
+    line-height:.98;
+    font-weight:400;
+    color:var(--anthracite);
+  }
+  .loader-name span{
+    display:block;
+    overflow:hidden;
+  }
+  .loader-name span em{
+    display:block;
+    font-style:normal;
+    transform:translateY(105%);
+    animation: nameUp .9s var(--ease) forwards;
+  }
+  .loader-name .n2 em{ animation-delay:.32s; font-style:italic; color:var(--accent-deep); }
+  .loader-name .n1 em{ animation-delay:.08s; }
+  @keyframes nameUp{ to{ transform:translateY(0);} }
+
+  .loader-role{
+    position:relative; z-index:1;
+    margin-top:18px;
+    font-family:'Work Sans', sans-serif;
+    font-size:clamp(.85rem, 2vw, 1.05rem);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:500;
+    color:var(--anthracite-soft);
+    opacity:0;
+    animation: fadeUp .8s var(--ease) forwards;
+    animation-delay:1.05s;
+  }
+  .loader-tags{
+    position:relative; z-index:1;
+    margin-top:10px;
+    font-size:.72rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    opacity:0;
+    animation: fadeUp .8s var(--ease) forwards;
+    animation-delay:1.35s;
+  }
+  @keyframes fadeUp{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    #loader{ display:none; }
+  }
+
+  /* ---------------------------------- */
+  /* NAV                                 */
+  /* ---------------------------------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0;
+    z-index:500;
+    padding:18px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    mix-blend-mode:normal;
+    transition:padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+  }
+  @media(min-width:768px){ header.site-nav{ padding:22px 48px; } }
+
+  header.site-nav.scrolled{
+    background:rgba(250,247,241,.86);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    box-shadow:0 1px 0 rgba(35,32,25,.08);
+    padding-block:12px;
+  }
+
+  .nav-mark{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+  .nav-mark small{
+    display:block;
+    font-family:'Work Sans', sans-serif;
+    font-size:.6rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    font-weight:600;
+    margin-top:2px;
+  }
+
+  nav.desktop-links{
+    display:none;
+    gap:34px;
+    align-items:center;
+  }
+  @media(min-width:900px){ nav.desktop-links{ display:flex; } }
+  nav.desktop-links a{
+    font-size:.78rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    font-weight:500;
+    position:relative;
+    padding-bottom:4px;
+    color:var(--anthracite-soft);
+    transition:color .3s;
+  }
+  nav.desktop-links a::after{
+    content:'';
+    position:absolute; left:0; bottom:0;
+    width:0; height:1px;
+    background:var(--accent);
+    transition:width .35s var(--ease);
+  }
+  nav.desktop-links a:hover{ color:var(--anthracite); }
+  nav.desktop-links a:hover::after{ width:100%; }
+
+  .nav-cta{
+    display:none;
+  }
+  @media(min-width:900px){
+    .nav-cta{
+      display:inline-flex; align-items:center;
+      font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; font-weight:600;
+      border:1px solid var(--anthracite);
+      padding:10px 20px;
+      border-radius:100px;
+      transition:background .3s, color .3s, border-color .3s;
+    }
+    .nav-cta:hover{ background:var(--anthracite); color:var(--blanc-casse); }
+  }
+
+  .burger{
+    display:flex; flex-direction:column; gap:5px;
+    width:26px; background:none; border:none; cursor:pointer; padding:8px;
+    z-index:600;
+  }
+  @media(min-width:900px){ .burger{ display:none; } }
+  .burger span{
+    display:block; width:100%; height:1.5px; background:var(--anthracite);
+    transition:transform .35s var(--ease), opacity .3s;
+  }
+  .burger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+  .burger.open span:nth-child(2){ opacity:0; }
+  .burger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu{
+    position:fixed; inset:0; z-index:550;
+    background:var(--anthracite);
+    color:var(--ivoire);
+    display:flex; flex-direction:column;
+    justify-content:center;
+    padding:24px 32px;
+    transform:translateY(-100%);
+    transition:transform .55s var(--ease);
+  }
+  .mobile-menu.open{ transform:translateY(0); }
+  .mobile-menu a{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:2.1rem;
+    padding:12px 0;
+    border-bottom:1px solid rgba(250,247,241,.12);
+    color:var(--ivoire);
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .5s var(--ease), transform .5s var(--ease);
+  }
+  .mobile-menu.open a{ opacity:1; transform:translateY(0); }
+  .mobile-menu.open a:nth-child(1){ transition-delay:.08s; }
+  .mobile-menu.open a:nth-child(2){ transition-delay:.14s; }
+  .mobile-menu.open a:nth-child(3){ transition-delay:.20s; }
+  .mobile-menu.open a:nth-child(4){ transition-delay:.26s; }
+  .mobile-menu.open a:nth-child(5){ transition-delay:.32s; }
+  .mobile-menu-foot{
+    margin-top:28px;
+    font-size:.78rem;
+    letter-spacing:.08em;
+    color:var(--accent-soft);
+    text-transform:uppercase;
+  }
+
+  /* ---------------------------------- */
+  /* HERO                                */
+  /* ---------------------------------- */
+  .hero{
+    min-height:100vh;
+    display:flex; align-items:center;
+    padding-top:110px; padding-bottom:70px;
+    position:relative;
+  }
+  .hero-route{
+    position:absolute; inset:0;
+    z-index:0; pointer-events:none;
+    opacity:.9;
+  }
+  .hero-route svg{ width:100%; height:100%; }
+  .hero-route path{
+    fill:none; stroke:var(--accent-soft); stroke-width:1.2;
+    stroke-dasharray:1400; stroke-dashoffset:1400;
+  }
+  .hero-route path.drawn{ animation:drawRoute2 2.4s var(--ease) forwards; }
+  @keyframes drawRoute2{ to{ stroke-dashoffset:0; } }
+
+  .hero-grid{
+    position:relative; z-index:1;
+    display:grid; gap:40px;
+  }
+  @media(min-width:960px){
+    .hero-grid{ grid-template-columns:1.3fr .8fr; align-items:end; gap:60px; }
+  }
+
+  .hero-title{
+    font-size:clamp(2.9rem, 8.4vw, 5.6rem);
+    line-height:.96;
+    font-weight:400;
+  }
+  .hero-title em{ font-style:italic; color:var(--accent-deep); font-weight:400; }
+
+  .hero-role{
+    margin-top:20px;
+    font-size:clamp(1.05rem, 2.4vw, 1.4rem);
+    letter-spacing:.02em;
+    color:var(--anthracite-soft);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+  }
+
+  .hero-line{
+    margin-top:22px;
+    font-size:1.05rem;
+    color:var(--anthracite-soft);
+    max-width:36ch;
+  }
+
+  .hero-tags{
+    margin-top:30px;
+    display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .tag-pill{
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:600;
+    padding:9px 16px;
+    border:1px solid var(--gris-clair);
+    border-radius:100px;
+    background:var(--blanc-casse);
+    color:var(--anthracite-soft);
+  }
+
+  .hero-actions{
+    margin-top:36px;
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; font-weight:600;
+    padding:15px 26px;
+    border-radius:100px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .35s var(--ease), background .3s, color .3s, border-color .3s;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--anthracite); color:var(--blanc-casse); }
+  .btn-primary:hover{ background:var(--accent-deep); }
+  .btn-ghost{ border-color:var(--anthracite); color:var(--anthracite); }
+  .btn-ghost:hover{ background:var(--anthracite); color:var(--blanc-casse); }
+
+  .hero-photo-zone{
+    position:relative;
+    display:flex; justify-content:center;
+  }
+  .monogram{
+    width:min(280px, 60vw);
+    aspect-ratio:1;
+    border-radius:50%;
+    background:linear-gradient(160deg, var(--accent-soft), var(--accent) 78%);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    box-shadow:0 30px 60px -25px rgba(191,106,61,.45);
+  }
+  .monogram::before{
+    content:'';
+    position:absolute; inset:14px;
+    border-radius:50%;
+    border:1px solid rgba(250,247,241,.5);
+  }
+  .monogram span{
+    font-family:'Fraunces', serif;
+    font-size:clamp(3.2rem, 9vw, 4.6rem);
+    color:var(--blanc-casse);
+    font-weight:400;
+  }
+
+  /* ---------------------------------- */
+  /* SECTION HEADERS / GENERIC           */
+  /* ---------------------------------- */
+  .section{ padding-block:100px; }
+  @media(min-width:768px){ .section{ padding-block:140px; } }
+
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{
+    margin-top:14px;
+    font-size:clamp(2rem, 5vw, 3.1rem);
+    line-height:1.04;
+    font-weight:400;
+  }
+  .section-head h2 em{ font-style:italic; color:var(--accent-deep); }
+
+  [data-reveal]{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .9s var(--ease), transform .9s var(--ease);
+  }
+  [data-reveal].in-view{ opacity:1; transform:translateY(0); }
+  [data-reveal-delay="1"]{ transition-delay:.08s; }
+  [data-reveal-delay="2"]{ transition-delay:.16s; }
+  [data-reveal-delay="3"]{ transition-delay:.24s; }
+  [data-reveal-delay="4"]{ transition-delay:.32s; }
+  [data-reveal-delay="5"]{ transition-delay:.4s; }
+  [data-reveal-delay="6"]{ transition-delay:.48s; }
+
+  /* ---------------------------------- */
+  /* PROFIL                              */
+  /* ---------------------------------- */
+  .profil-grid{
+    display:grid; gap:44px;
+  }
+  @media(min-width:900px){
+    .profil-grid{ grid-template-columns:1fr 1fr; gap:70px; align-items:start; }
+  }
+  .profil-text p{
+    font-size:1.18rem;
+    line-height:1.7;
+    color:var(--anthracite-soft);
+  }
+  .profil-text p + p{ margin-top:20px; }
+
+  .qualities-list{
+    list-style:none; margin:0; padding:0;
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border-top:1px solid var(--gris-clair);
+  }
+  .qualities-list li{
+    padding:22px 0;
+    border-bottom:1px solid var(--gris-clair);
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+  }
+  .qualities-list li:nth-child(odd){ border-right:1px solid var(--gris-clair); padding-right:16px; }
+  .qualities-list li:nth-child(even){ padding-left:16px; }
+  .qualities-list li span{
+    display:block;
+    font-family:'Work Sans', sans-serif;
+    font-size:.66rem;
+    letter-spacing:.16em;
+    color:var(--accent-deep);
+    font-weight:600;
+    margin-bottom:6px;
+  }
+
+  /* ---------------------------------- */
+  /* TRANSFERABLE SKILLS                 */
+  /* ---------------------------------- */
+  .transfer-section{ background:var(--blanc-casse); }
+  .transfer-grid{
+    display:grid; gap:1px;
+    background:var(--gris-clair);
+    border:1px solid var(--gris-clair);
+  }
+  @media(min-width:700px){ .transfer-grid{ grid-template-columns:1fr 1fr; } }
+  @media(min-width:1050px){ .transfer-grid{ grid-template-columns:1fr 1fr 1fr; } }
+  .transfer-card{
+    background:var(--blanc-casse);
+    padding:38px 32px;
+    transition:background .4s;
+  }
+  .transfer-card:hover{ background:var(--ivoire); }
+  .transfer-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:.95rem;
+    color:var(--accent-deep);
+  }
+  .transfer-card h3{
+    margin-top:14px;
+    font-size:1.15rem;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+  .transfer-card p{
+    margin-top:12px;
+    font-size:.94rem;
+    color:var(--anthracite-soft);
+    line-height:1.6;
+  }
+
+  /* ---------------------------------- */
+  /* TIMELINE                            */
+  /* ---------------------------------- */
+  .timeline{
+    position:relative;
+    margin-top:20px;
+    padding-left:32px;
+  }
+  @media(min-width:600px){ .timeline{ padding-left:48px; } }
+  .timeline::before{
+    content:'';
+    position:absolute; left:0; top:6px; bottom:6px; width:1px;
+    background:var(--gris-clair);
+  }
+  .timeline-progress{
+    position:absolute; left:0; top:6px; width:1px;
+    background:var(--accent);
+    height:0;
+    transition:height 1.4s var(--ease);
+  }
+  .timeline-item{
+    position:relative;
+    padding-bottom:64px;
+  }
+  .timeline-item:last-child{ padding-bottom:0; }
+  .timeline-dot{
+    position:absolute; left:-32px; top:4px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--blanc-casse);
+    border:2px solid var(--accent);
+  }
+  @media(min-width:600px){ .timeline-dot{ left:-48px; } }
+  .timeline-period{
+    font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+    color:var(--accent-deep);
+  }
+  .timeline-item h3{
+    margin-top:8px;
+    font-size:1.5rem;
+    font-weight:500;
+  }
+  .timeline-item .role{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--anthracite-soft);
+    margin-top:2px;
+    font-size:1.02rem;
+  }
+  .timeline-item ul{
+    margin:16px 0 0; padding:0; list-style:none;
+    display:grid; gap:8px;
+  }
+  .timeline-item ul li{
+    font-size:.94rem;
+    color:var(--anthracite-soft);
+    padding-left:18px;
+    position:relative;
+  }
+  .timeline-item ul li::before{
+    content:'';
+    position:absolute; left:0; top:9px;
+    width:6px; height:1px;
+    background:var(--accent);
+  }
+
+  /* ---------------------------------- */
+  /* SKILLS BLOCKS                       */
+  /* ---------------------------------- */
+  .skills-section{ background:var(--blanc-casse); }
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:14px;
+  }
+  @media(min-width:700px){ .skills-grid{ grid-template-columns:repeat(4, 1fr); gap:16px; } }
+  .skill-block{
+    padding:26px 18px;
+    background:var(--ivoire);
+    border:1px solid var(--gris-clair);
+    border-radius:4px;
+    text-align:center;
+    transition:border-color .35s, transform .35s var(--ease);
+  }
+  .skill-block:hover{ border-color:var(--accent); transform:translateY(-3px); }
+  .skill-block span{
+    font-family:'Fraunces', serif;
+    font-size:1rem;
+    letter-spacing:.01em;
+  }
+
+  /* ---------------------------------- */
+  /* MOBILITY (dark section)             */
+  /* ---------------------------------- */
+  .mobility-section{
+    background:var(--anthracite);
+    color:var(--ivoire);
+    overflow:hidden;
+  }
+  .mobility-section .eyebrow{ color:var(--accent-soft); }
+  .mobility-section .section-head h2{ color:var(--ivoire); }
+  .mobility-section .section-head h2 em{ color:var(--accent-soft); }
+
+  .mobility-grid{
+    display:grid; gap:44px;
+  }
+  @media(min-width:900px){ .mobility-grid{ grid-template-columns:1fr 1fr; gap:70px; align-items:center; } }
+
+  .mobility-facts{
+    display:grid; gap:1px;
+    background:rgba(250,247,241,.14);
+    border:1px solid rgba(250,247,241,.14);
+  }
+  .mobility-fact{
+    background:var(--anthracite);
+    padding:26px 24px;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .mobility-fact .label{
+    font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(250,247,241,.65);
+  }
+  .mobility-fact .value{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    color:var(--accent-soft);
+  }
+  .mobility-note{
+    margin-top:26px;
+    font-size:1.05rem;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:rgba(250,247,241,.85);
+    line-height:1.6;
+  }
+
+  .route-visual{
+    position:relative;
+    aspect-ratio:4/3;
+  }
+  .route-visual svg{ width:100%; height:100%; }
+  .route-visual path{
+    fill:none; stroke:var(--accent-soft); stroke-width:1.2;
+    stroke-dasharray:1000; stroke-dashoffset:1000;
+    transition:stroke-dashoffset 1.8s var(--ease);
+  }
+  .route-visual.in-view path{ stroke-dashoffset:0; }
+  .route-visual circle{ fill:var(--accent); }
+
+  /* ---------------------------------- */
+  /* OBJECTIF                            */
+  /* ---------------------------------- */
+  .objectif-section{ text-align:center; }
+  .objectif-section .section-head{ margin:0 auto 40px; text-align:center; }
+  .objectif-title{
+    font-size:clamp(2.4rem, 7vw, 4.4rem);
+    line-height:1.08;
+    max-width:16ch;
+    margin:0 auto;
+  }
+  .objectif-title em{ font-style:italic; color:var(--accent-deep); }
+  .objectif-quote{
+    max-width:52ch;
+    margin:34px auto 0;
+    font-size:1.15rem;
+    color:var(--anthracite-soft);
+    line-height:1.75;
+  }
+
+  /* ---------------------------------- */
+  /* CONTACT                             */
+  /* ---------------------------------- */
+  .contact-section{
+    background:var(--accent);
+    color:var(--blanc-casse);
+    position:relative;
+    overflow:hidden;
+  }
+  .contact-section .eyebrow{ color:rgba(255,253,249,.75); }
+  .contact-title{
+    font-size:clamp(2.6rem, 8vw, 5rem);
+    line-height:.98;
+    color:var(--blanc-casse);
+  }
+  .contact-grid{
+    margin-top:50px;
+    display:grid; gap:36px;
+  }
+  @media(min-width:800px){ .contact-grid{ grid-template-columns:1fr 1fr; align-items:end; } }
+  .contact-details p{ font-size:1.2rem; }
+  .contact-details .cname{
+    font-family:'Fraunces', serif;
+    font-size:1.6rem;
+    margin-bottom:6px;
+  }
+  .contact-details a{
+    display:block;
+    margin-top:6px;
+    font-size:1.05rem;
+    border-bottom:1px solid rgba(255,253,249,.4);
+    width:fit-content;
+    padding-bottom:2px;
+    transition:border-color .3s, opacity .3s;
+  }
+  .contact-details a:hover{ border-color:var(--blanc-casse); }
+
+  .contact-actions{ display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
+  @media(min-width:800px){ .contact-actions{ align-items:flex-end; } }
+  .btn-light{ background:var(--anthracite); color:var(--blanc-casse); }
+  .btn-light:hover{ background:var(--blanc-casse); color:var(--anthracite); }
+  .btn-outline-light{ border:1px solid rgba(255,253,249,.6); color:var(--blanc-casse); }
+  .btn-outline-light:hover{ background:var(--blanc-casse); color:var(--accent-deep); border-color:var(--blanc-casse); }
+
+  /* ---------------------------------- */
+  /* FOOTER                              */
+  /* ---------------------------------- */
+  footer{
+    background:var(--anthracite);
+    color:rgba(250,247,241,.6);
+    padding:44px 24px;
+    text-align:center;
+  }
+  @media(min-width:768px){ footer{ padding:54px 48px; } }
+  footer .fname{
+    font-family:'Fraunces', serif;
+    font-size:1.1rem;
+    color:var(--ivoire);
+  }
+  footer .frole{
+    margin-top:6px;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent-soft);
+  }
+  footer .fcontact{
+    margin-top:16px;
+    font-size:.85rem;
+    display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
+  }
+  footer .fcontact a{ color:rgba(250,247,241,.6); transition:color .3s; }
+  footer .fcontact a:hover{ color:var(--accent-soft); }
+
+  /* ---------------------------------- */
+  /* PRINT                               */
+  /* ---------------------------------- */
+  @media print{
+    #loader, header.site-nav, .mobile-menu, .hero-route, .route-visual, .btn{ display:none !important; }
+    body{ background:#fff; color:#000; }
+    .section{ padding-block:24px; }
+    .mobility-section, .contact-section{ background:#fff !important; color:#000 !important; }
+  }
+</style>
+</head>
+<body class="no-scroll">
+
+<!-- ============================================================ -->
+<!-- LOADER -->
+<!-- ============================================================ -->
+<div id="loader" role="status" aria-label="Chargement du profil de Marion Lopez">
+  <div class="loader-inner">
+    <div class="loader-line-wrap" aria-hidden="true">
+      <svg viewBox="0 0 600 200" preserveAspectRatio="none">
+        <path class="route-path" d="M -20 150 C 120 40, 220 190, 340 90 S 560 30, 640 70" />
+      </svg>
+    </div>
+    <h1 class="loader-name">
+      <span class="n1"><em>Marion</em></span>
+      <span class="n2"><em>Lopez</em></span>
+    </h1>
+    <p class="loader-role">Livreuse de repas à domicile</p>
+    <p class="loader-tags">Sérieuse — Ponctuelle — Autonome</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- NAV -->
+<!-- ============================================================ -->
+<header class="site-nav" id="siteNav">
+  <a href="#accueil" class="nav-mark">
+    Marion Lopez
+    <small>Livreuse de repas à domicile</small>
+  </a>
+  <nav class="desktop-links" aria-label="Navigation principale">
+    <a href="#accueil">Accueil</a>
+    <a href="#profil">Profil</a>
+    <a href="#parcours">Parcours</a>
+    <a href="#competences">Compétences</a>
+    <a href="#objectif">Objectif</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a href="#contact" class="nav-cta">Me contacter</a>
+  <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#accueil">Accueil</a>
+  <a href="#profil">Profil</a>
+  <a href="#parcours">Parcours</a>
+  <a href="#competences">Compétences</a>
+  <a href="#objectif">Objectif</a>
+  <a href="#contact">Contact</a>
+  <p class="mobile-menu-foot">06.75.87.55.83 — Montelier</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- HERO -->
+<!-- ============================================================ -->
+<section class="hero" id="accueil">
+  <div class="hero-route" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <path id="heroPath" d="M -50 620 C 200 500, 320 700, 520 560 S 820 380, 950 460 S 1180 300, 1300 340" />
+    </svg>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow" data-reveal>Curriculum vitae digital</p>
+      <h1 class="hero-title" data-reveal data-reveal-delay="1">Marion <em>Lopez</em></h1>
+      <p class="hero-role" data-reveal data-reveal-delay="2">Livreuse de repas à domicile</p>
+      <p class="hero-line" data-reveal data-reveal-delay="3">Sérieuse, ponctuelle et autonome, au service des particuliers depuis plusieurs années.</p>
+
+      <div class="hero-tags" data-reveal data-reveal-delay="4">
+        <span class="tag-pill">Permis B</span>
+        <span class="tag-pill">Véhicule personnel</span>
+        <span class="tag-pill">Expérience auprès de particuliers</span>
+      </div>
+
+      <div class="hero-actions" data-reveal data-reveal-delay="5">
+        <a href="#profil" class="btn btn-primary">Voir mon profil</a>
+        <button class="btn btn-ghost" id="downloadBtn" type="button">Télécharger mon CV</button>
+      </div>
+    </div>
+
+    <div class="hero-photo-zone" data-reveal data-reveal-delay="3">
+      <div class="monogram" aria-hidden="true"><span>ML</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACCROCHE -->
+<!-- ============================================================ -->
+<section class="section" style="padding-block:70px;">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="serif" data-reveal style="font-size:clamp(1.6rem, 4.6vw, 2.6rem); font-style:italic; font-weight:400; max-width:20ch; margin:0 auto; color:var(--anthracite-soft);">
+      « Le sérieux dans chaque <em style="color:var(--accent-deep); font-style:italic;">tournée.</em> »
+    </h2>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PROFIL -->
+<!-- ============================================================ -->
+<section class="section" id="profil">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Portrait</p>
+      <h2>Qui est <em>Marion ?</em></h2>
+    </div>
+
+    <div class="profil-grid">
+      <div class="profil-text" data-reveal>
+        <p>Sérieuse, ponctuelle et autonome, Marion souhaite aujourd'hui s'orienter vers un poste de livreuse de repas à domicile.</p>
+        <p>Grâce à son expérience auprès de particuliers, elle a développé un bon relationnel, le sens du service et l'habitude de respecter les horaires et les consignes.</p>
+      </div>
+
+      <ul class="qualities-list" data-reveal data-reveal-delay="1">
+        <li><span>01</span>Sérieuse</li>
+        <li><span>02</span>Ponctuelle</li>
+        <li><span>03</span>Autonome</li>
+        <li><span>04</span>Bienveillante</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- COMPÉTENCES TRANSFÉRABLES -->
+<!-- ============================================================ -->
+<section class="section transfer-section">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Ce que son parcours apporte</p>
+      <h2>Des compétences <em>directement transférables</em></h2>
+    </div>
+
+    <div class="transfer-grid">
+      <div class="transfer-card" data-reveal data-reveal-delay="1">
+        <p class="transfer-num">01</p>
+        <h3>Respect des horaires</h3>
+        <p>Habituée à intervenir chez différents particuliers dans le respect des horaires.</p>
+      </div>
+      <div class="transfer-card" data-reveal data-reveal-delay="2">
+        <p class="transfer-num">02</p>
+        <h3>Autonomie</h3>
+        <p>Organisation autonome des interventions et des déplacements.</p>
+      </div>
+      <div class="transfer-card" data-reveal data-reveal-delay="3">
+        <p class="transfer-num">03</p>
+        <h3>Relation client</h3>
+        <p>Expérience du contact direct avec les particuliers.</p>
+      </div>
+      <div class="transfer-card" data-reveal data-reveal-delay="4">
+        <p class="transfer-num">04</p>
+        <h3>Mobilité</h3>
+        <p>Habituée aux déplacements réguliers.</p>
+      </div>
+      <div class="transfer-card" data-reveal data-reveal-delay="5">
+        <p class="transfer-num">05</p>
+        <h3>Sens du service</h3>
+        <p>Expérience professionnelle centrée sur le service et la relation humaine.</p>
+      </div>
+      <div class="transfer-card" data-reveal data-reveal-delay="6">
+        <p class="transfer-num">06</p>
+        <h3>Fiabilité</h3>
+        <p>Travail sérieux et respect des consignes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PARCOURS -->
+<!-- ============================================================ -->
+<section class="section" id="parcours">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Expérience</p>
+      <h2>Son <em>parcours</em></h2>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <div class="timeline-progress" id="timelineProgress"></div>
+
+      <div class="timeline-item" data-reveal>
+        <span class="timeline-dot"></span>
+        <p class="timeline-period">Depuis 3 ans</p>
+        <h3>Shiva</h3>
+        <p class="role">Aide ménagère chez des particuliers</p>
+        <ul>
+          <li>Déplacements réguliers chez différents clients</li>
+          <li>Respect des horaires et des consignes</li>
+          <li>Organisation autonome des interventions</li>
+          <li>Contact direct avec les particuliers</li>
+          <li>Travail sérieux et fiable</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item" data-reveal>
+        <span class="timeline-dot"></span>
+        <p class="timeline-period">2013 — 2015</p>
+        <h3>ADMR</h3>
+        <p class="role">Aide à domicile</p>
+        <ul>
+          <li>Interventions au domicile des particuliers</li>
+          <li>Déplacements réguliers</li>
+          <li>Contact avec les personnes accompagnées</li>
+          <li>Respect des horaires et des consignes</li>
+          <li>Travail en autonomie</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item" data-reveal>
+        <span class="timeline-dot"></span>
+        <p class="timeline-period">Expérience complémentaire</p>
+        <h3>Ménage chez des particuliers</h3>
+        <ul>
+          <li>Entretien des logements</li>
+          <li>Déplacements chez différents particuliers</li>
+          <li>Organisation du travail en autonomie</li>
+          <li>Relation de confiance avec les clients</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- COMPÉTENCES -->
+<!-- ============================================================ -->
+<section class="section skills-section" id="competences">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Savoir-être</p>
+      <h2>Ses <em>compétences</em></h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-block" data-reveal data-reveal-delay="1"><span>Ponctualité</span></div>
+      <div class="skill-block" data-reveal data-reveal-delay="2"><span>Fiabilité</span></div>
+      <div class="skill-block" data-reveal data-reveal-delay="3"><span>Autonomie</span></div>
+      <div class="skill-block" data-reveal data-reveal-delay="4"><span>Organisation</span></div>
+      <div class="skill-block" data-reveal data-reveal-delay="1"><span>Relationnel</span></div>
+      <div class="skill-block" data-reveal data-reveal-delay="2"><span>Sens du service</span></div>
+      <div class="skill-block" data-reveal data-reveal-delay="3"><span>Respect des consignes</span></div>
+      <div class="skill-block" data-reveal data-reveal-delay="4"><span>Mobilité</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- MOBILITÉ -->
+<!-- ============================================================ -->
+<section class="section mobility-section">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Disponibilité terrain</p>
+      <h2>Prête pour les <em>tournées</em></h2>
+    </div>
+
+    <div class="mobility-grid">
+      <div data-reveal>
+        <div class="mobility-facts">
+          <div class="mobility-fact">
+            <span class="label">Permis B</span>
+            <span class="value">Oui</span>
+          </div>
+          <div class="mobility-fact">
+            <span class="label">Véhicule personnel</span>
+            <span class="value">Oui</span>
+          </div>
+        </div>
+        <p class="mobility-note">« Souhaite effectuer les livraisons avec un véhicule mis à disposition par l'entreprise. »</p>
+      </div>
+
+      <div class="route-visual" id="routeVisual" data-reveal>
+        <svg viewBox="0 0 400 300" aria-hidden="true">
+          <path d="M 20 250 C 100 260, 120 120, 200 140 S 320 220, 380 60" />
+          <circle cx="20" cy="250" r="4"></circle>
+          <circle cx="380" cy="60" r="4"></circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- OBJECTIF -->
+<!-- ============================================================ -->
+<section class="section objectif-section" id="objectif">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Prochaine étape</p>
+    </div>
+    <h2 class="objectif-title serif" data-reveal data-reveal-delay="1">Un nouveau <em>départ.</em></h2>
+    <p class="objectif-quote" data-reveal data-reveal-delay="2">Je souhaite aujourd'hui mettre mon expérience du contact avec les particuliers, mon autonomie et mon sens du service au service de la livraison de repas à domicile.</p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CONTACT -->
+<!-- ============================================================ -->
+<section class="section contact-section" id="contact">
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Prenons contact</p>
+    <h2 class="contact-title serif" data-reveal data-reveal-delay="1">Parlons-en.</h2>
+
+    <div class="contact-grid">
+      <div class="contact-details" data-reveal data-reveal-delay="2">
+        <p class="cname">Marion Lopez</p>
+        <p>Montelier</p>
+        <a href="tel:0675875583">06.75.87.55.83</a>
+        <a href="mailto:lopez.marion26120@gmail.com">lopez.marion26120@gmail.com</a>
+      </div>
+
+      <div class="contact-actions" data-reveal data-reveal-delay="3">
+        <a href="tel:0675875583" class="btn btn-light">Me contacter</a>
+        <button class="btn btn-outline-light" id="downloadBtn2" type="button">Télécharger mon CV</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer>
+  <p class="fname">Marion Lopez</p>
+  <p class="frole">Livreuse de repas à domicile</p>
+  <div class="fcontact">
+    <a href="tel:0675875583">06.75.87.55.83</a>
+    <a href="mailto:lopez.marion26120@gmail.com">lopez.marion26120@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+  var loader = document.getElementById('loader');
+
+  function endLoader(){
+    body.classList.remove('no-scroll');
+    if(loader){
+      loader.classList.add('hide');
+      setTimeout(function(){ loader.style.display='none'; }, 950);
+    }
+    var heroPath = document.getElementById('heroPath');
+    if(heroPath){ heroPath.classList.add('drawn'); }
+  }
+
+  if(reduceMotion){
+    endLoader();
+  } else {
+    setTimeout(endLoader, 2650);
+  }
+
+  /* NAV scroll state */
+  var nav = document.getElementById('siteNav');
+  function onScroll(){
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); }
+    else{ nav.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  /* Mobile menu */
+  var burger = document.getElementById('burgerBtn');
+  var menu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', function(){
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    body.classList.toggle('no-scroll', open);
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      body.classList.remove('no-scroll');
+    });
+  });
+
+  /* Scroll reveal */
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:.15, rootMargin:'0px 0px -8% 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* Timeline progress line */
+  var timeline = document.getElementById('timeline');
+  var progress = document.getElementById('timelineProgress');
+  if(timeline && progress){
+    var tio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          progress.style.height = timeline.offsetHeight + 'px';
+        }
+      });
+    }, { threshold:.1 });
+    tio.observe(timeline);
+  }
+
+  /* Route visual reveal */
+  var routeVisual = document.getElementById('routeVisual');
+  if(routeVisual && 'IntersectionObserver' in window){
+    var rio = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          rio.unobserve(entry.target);
+        }
+      });
+    }, { threshold:.3 });
+    rio.observe(routeVisual);
+  } else if(routeVisual){
+    routeVisual.classList.add('in-view');
+  }
+
+  /* Download CV -> print-friendly version */
+  function triggerPrint(){ window.print(); }
+  var d1 = document.getElementById('downloadBtn');
+  var d2 = document.getElementById('downloadBtn2');
+  if(d1) d1.addEventListener('click', triggerPrint);
+  if(d2) d2.addEventListener('click', triggerPrint);
+})();
+</script>
+
+</body>
+</html>
