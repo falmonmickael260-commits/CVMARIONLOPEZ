@@ -851,7 +851,7 @@
 
       <div class="hero-actions" data-reveal data-reveal-delay="5">
         <a href="#profil" class="btn btn-primary">Voir mon profil</a>
-        <button class="btn btn-ghost" id="downloadBtn" type="button">Télécharger mon CV</button>
+        <a href="https://res.cloudinary.com/dkm8cbylh/image/upload/fl_attachment/v1787221117/ChatGPT_Image_19_aou%CC%82t_2026_19_44_35_g0ote4.png" class="btn btn-ghost" download="CV-Marion-Lopez.png">Télécharger mon CV</a>
       </div>
     </div>
 
@@ -1092,7 +1092,7 @@
 
       <div class="contact-actions" data-reveal data-reveal-delay="3">
         <a href="tel:0675875583" class="btn btn-light">Me contacter</a>
-        <button class="btn btn-outline-light" id="downloadBtn2" type="button">Télécharger mon CV</button>
+        <a href="https://res.cloudinary.com/dkm8cbylh/image/upload/fl_attachment/v1787221117/ChatGPT_Image_19_aou%CC%82t_2026_19_44_35_g0ote4.png" class="btn btn-outline-light" download="CV-Marion-Lopez.png">Télécharger mon CV</a>
       </div>
     </div>
   </div>
@@ -1205,12 +1205,6 @@
     routeVisual.classList.add('in-view');
   }
 
-  /* Download CV -> print-friendly version */
-  function triggerPrint(){ window.print(); }
-  var d1 = document.getElementById('downloadBtn');
-  var d2 = document.getElementById('downloadBtn2');
-  if(d1) d1.addEventListener('click', triggerPrint);
-  if(d2) d2.addEventListener('click', triggerPrint);
 })();
 </script>
 
