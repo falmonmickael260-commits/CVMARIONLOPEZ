@@ -394,26 +394,28 @@
     position:relative;
     display:flex; justify-content:center;
   }
-  .monogram{
-    width:min(280px, 60vw);
+  .photo-frame{
+    width:min(300px, 62vw);
     aspect-ratio:1;
     border-radius:50%;
-    background:linear-gradient(160deg, var(--accent-soft), var(--accent) 78%);
-    display:flex; align-items:center; justify-content:center;
     position:relative;
+    padding:10px;
+    background:linear-gradient(160deg, var(--accent-soft), var(--accent) 78%);
     box-shadow:0 30px 60px -25px rgba(191,106,61,.45);
   }
-  .monogram::before{
+  .photo-frame::before{
     content:'';
-    position:absolute; inset:14px;
+    position:absolute; inset:16px;
     border-radius:50%;
     border:1px solid rgba(250,247,241,.5);
+    z-index:2;
+    pointer-events:none;
   }
-  .monogram span{
-    font-family:'Fraunces', serif;
-    font-size:clamp(3.2rem, 9vw, 4.6rem);
-    color:var(--blanc-casse);
-    font-weight:400;
+  .photo-frame img{
+    width:100%; height:100%;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
   }
 
   /* ---------------------------------- */
@@ -854,7 +856,10 @@
     </div>
 
     <div class="hero-photo-zone" data-reveal data-reveal-delay="3">
-      <div class="monogram" aria-hidden="true"><span>ML</span></div>
+      <div class="photo-frame">
+        <!-- Photo Marion Lopez — hébergée sur Cloudinary -->
+        <img src="https://res.cloudinary.com/dkm8cbylh/image/upload/v1787219680/ChatGPT_Image_20_aou%CC%82t_2026_11_53_27_utahnb.png" alt="Portrait de Marion Lopez">
+      </div>
     </div>
   </div>
 </section>
