@@ -41,6 +41,8 @@
     if(heroPath){ heroPath.classList.add('drawn'); }
     var heroPin = document.querySelector('.hero-pin');
     setTimeout(function(){ if(heroPin) heroPin.classList.add('show'); }, reduceMotion ? 0 : 1900);
+    var heroPhotoPanel = document.querySelector('.hero-photo-panel');
+    if(heroPhotoPanel){ heroPhotoPanel.classList.add('in-view'); }
     runHeroReveal();
   }
 
@@ -350,22 +352,14 @@
   }
 
   /* ============================================================ */
-  /* PHOTO PARALLAX TILT                                           */
+  /* HERO PHOTO PANEL PARALLAX                                      */
   /* ============================================================ */
-  var photoFrame = document.getElementById('photoFrame');
-  if(photoFrame && hasGSAP && isFinePointer && !reduceMotion){
-    var rotX = gsap.quickTo(photoFrame, 'rotateX', { duration:.6, ease:'power3.out' });
-    var rotY = gsap.quickTo(photoFrame, 'rotateY', { duration:.6, ease:'power3.out' });
-    photoFrame.style.transformStyle = 'preserve-3d';
-    photoFrame.style.perspective = '600px';
-    window.addEventListener('mousemove', function(e){
-      var r = photoFrame.getBoundingClientRect();
-      var cx2 = r.left + r.width/2, cy2 = r.top + r.height/2;
-      var dx2 = (e.clientX - cx2) / r.width;
-      var dy2 = (e.clientY - cy2) / r.height;
-      rotY(dx2 * 10);
-      rotX(dy2 * -10);
-    }, { passive:true });
+  var heroPhotoImg = document.querySelector('.hero-photo-panel img');
+  if(heroPhotoImg && hasGSAP && isDesktop && !reduceMotion){
+    gsap.to(heroPhotoImg, {
+      yPercent:10, ease:'none',
+      scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:.6 }
+    });
   }
 
   /* ============================================================ */
