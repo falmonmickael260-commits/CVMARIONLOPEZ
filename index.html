@@ -5,776 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Marion Lopez — Livreuse de repas à domicile</title>
 <meta name="description" content="Marion Lopez, sérieuse, ponctuelle et autonome, à la recherche d'un poste de livreuse de repas à domicile à Montelier.">
+<meta name="theme-color" content="#faf7f1">
+<meta property="og:title" content="Marion Lopez — Livreuse de repas à domicile">
+<meta property="og:description" content="CV digital de Marion Lopez, à la recherche d'un poste de livreuse de repas à domicile — sérieuse, ponctuelle, autonome.">
+<meta property="og:type" content="profile">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --ivoire:#faf7f1;
-    --blanc-casse:#fffdf9;
-    --gris-clair:#e9e4da;
-    --gris-mid:#b8b2a4;
-    --anthracite:#232019;
-    --anthracite-soft:#39352c;
-    --accent:#bf6a3d;
-    --accent-deep:#a1552e;
-    --accent-soft:#e7bd9a;
-    --ease:cubic-bezier(.22,1,.36,1);
-    --maxw:1180px;
-  }
-
-  *,*::before,*::after{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *,*::before,*::after{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
-  }
-
-  body{
-    margin:0;
-    background:var(--ivoire);
-    color:var(--anthracite);
-    font-family:'Work Sans', sans-serif;
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-
-  body.no-scroll{overflow:hidden; height:100%;}
-
-  h1,h2,h3,.serif{
-    font-family:'Fraunces', serif;
-    margin:0;
-    letter-spacing:-0.01em;
-  }
-
-  p{margin:0; line-height:1.6;}
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  section{position:relative;}
-  ::selection{background:var(--accent); color:var(--blanc-casse);}
-
-  .wrap{
-    max-width:var(--maxw);
-    margin:0 auto;
-    padding-inline:24px;
-  }
-  @media(min-width:768px){ .wrap{padding-inline:48px;} }
-  @media(min-width:1200px){ .wrap{padding-inline:64px;} }
-
-  .eyebrow{
-    font-family:'Work Sans', sans-serif;
-    font-size:.72rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    font-weight:600;
-    color:var(--accent-deep);
-  }
-
-  /* ---------------------------------- */
-  /* LOADER                              */
-  /* ---------------------------------- */
-  #loader{
-    position:fixed; inset:0; z-index:9999;
-    background:var(--ivoire);
-    display:flex; align-items:center; justify-content:center;
-    overflow:hidden;
-  }
-  #loader.hide{
-    animation: loaderOut .9s var(--ease) forwards;
-    pointer-events:none;
-  }
-  @keyframes loaderOut{
-    to{ opacity:0; transform:translateY(-3%); }
-  }
-
-  .loader-inner{
-    position:relative;
-    width:min(90vw, 620px);
-    text-align:center;
-  }
-
-  .loader-line-wrap{
-    position:absolute;
-    top:50%; left:50%;
-    width:140%;
-    transform:translate(-50%,-50%);
-    pointer-events:none;
-    z-index:0;
-  }
-  .loader-line-wrap svg{ width:100%; height:auto; display:block; }
-  .route-path{
-    fill:none;
-    stroke:var(--accent);
-    stroke-width:1.4;
-    stroke-linecap:round;
-    stroke-dasharray:900;
-    stroke-dashoffset:900;
-    opacity:.55;
-    animation: drawRoute 2.6s var(--ease) forwards;
-    animation-delay:.15s;
-  }
-  @keyframes drawRoute{
-    to{ stroke-dashoffset:0; }
-  }
-
-  .loader-name{
-    position:relative; z-index:1;
-    font-size:clamp(2.6rem, 10vw, 5.2rem);
-    line-height:.98;
-    font-weight:400;
-    color:var(--anthracite);
-  }
-  .loader-name span{
-    display:block;
-    overflow:hidden;
-  }
-  .loader-name span em{
-    display:block;
-    font-style:normal;
-    transform:translateY(105%);
-    animation: nameUp .9s var(--ease) forwards;
-  }
-  .loader-name .n2 em{ animation-delay:.32s; font-style:italic; color:var(--accent-deep); }
-  .loader-name .n1 em{ animation-delay:.08s; }
-  @keyframes nameUp{ to{ transform:translateY(0);} }
-
-  .loader-role{
-    position:relative; z-index:1;
-    margin-top:18px;
-    font-family:'Work Sans', sans-serif;
-    font-size:clamp(.85rem, 2vw, 1.05rem);
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    font-weight:500;
-    color:var(--anthracite-soft);
-    opacity:0;
-    animation: fadeUp .8s var(--ease) forwards;
-    animation-delay:1.05s;
-  }
-  .loader-tags{
-    position:relative; z-index:1;
-    margin-top:10px;
-    font-size:.72rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--accent-deep);
-    opacity:0;
-    animation: fadeUp .8s var(--ease) forwards;
-    animation-delay:1.35s;
-  }
-  @keyframes fadeUp{
-    from{ opacity:0; transform:translateY(10px); }
-    to{ opacity:1; transform:translateY(0); }
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    #loader{ display:none; }
-  }
-
-  /* ---------------------------------- */
-  /* NAV                                 */
-  /* ---------------------------------- */
-  header.site-nav{
-    position:fixed; top:0; left:0; right:0;
-    z-index:500;
-    padding:18px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-    mix-blend-mode:normal;
-    transition:padding .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
-  }
-  @media(min-width:768px){ header.site-nav{ padding:22px 48px; } }
-
-  header.site-nav.scrolled{
-    background:rgba(250,247,241,.86);
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    box-shadow:0 1px 0 rgba(35,32,25,.08);
-    padding-block:12px;
-  }
-
-  .nav-mark{
-    font-family:'Fraunces', serif;
-    font-size:1.05rem;
-    font-weight:500;
-    letter-spacing:.01em;
-  }
-  .nav-mark small{
-    display:block;
-    font-family:'Work Sans', sans-serif;
-    font-size:.6rem;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--accent-deep);
-    font-weight:600;
-    margin-top:2px;
-  }
-
-  nav.desktop-links{
-    display:none;
-    gap:34px;
-    align-items:center;
-  }
-  @media(min-width:900px){ nav.desktop-links{ display:flex; } }
-  nav.desktop-links a{
-    font-size:.78rem;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    font-weight:500;
-    position:relative;
-    padding-bottom:4px;
-    color:var(--anthracite-soft);
-    transition:color .3s;
-  }
-  nav.desktop-links a::after{
-    content:'';
-    position:absolute; left:0; bottom:0;
-    width:0; height:1px;
-    background:var(--accent);
-    transition:width .35s var(--ease);
-  }
-  nav.desktop-links a:hover{ color:var(--anthracite); }
-  nav.desktop-links a:hover::after{ width:100%; }
-
-  .nav-cta{
-    display:none;
-  }
-  @media(min-width:900px){
-    .nav-cta{
-      display:inline-flex; align-items:center;
-      font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; font-weight:600;
-      border:1px solid var(--anthracite);
-      padding:10px 20px;
-      border-radius:100px;
-      transition:background .3s, color .3s, border-color .3s;
-    }
-    .nav-cta:hover{ background:var(--anthracite); color:var(--blanc-casse); }
-  }
-
-  .burger{
-    display:flex; flex-direction:column; gap:5px;
-    width:26px; background:none; border:none; cursor:pointer; padding:8px;
-    z-index:600;
-  }
-  @media(min-width:900px){ .burger{ display:none; } }
-  .burger span{
-    display:block; width:100%; height:1.5px; background:var(--anthracite);
-    transition:transform .35s var(--ease), opacity .3s;
-  }
-  .burger.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
-  .burger.open span:nth-child(2){ opacity:0; }
-  .burger.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
-
-  .mobile-menu{
-    position:fixed; inset:0; z-index:550;
-    background:var(--anthracite);
-    color:var(--ivoire);
-    display:flex; flex-direction:column;
-    justify-content:center;
-    padding:24px 32px;
-    transform:translateY(-100%);
-    transition:transform .55s var(--ease);
-  }
-  .mobile-menu.open{ transform:translateY(0); }
-  .mobile-menu a{
-    display:block;
-    font-family:'Fraunces', serif;
-    font-size:2.1rem;
-    padding:12px 0;
-    border-bottom:1px solid rgba(250,247,241,.12);
-    color:var(--ivoire);
-    opacity:0;
-    transform:translateY(14px);
-    transition:opacity .5s var(--ease), transform .5s var(--ease);
-  }
-  .mobile-menu.open a{ opacity:1; transform:translateY(0); }
-  .mobile-menu.open a:nth-child(1){ transition-delay:.08s; }
-  .mobile-menu.open a:nth-child(2){ transition-delay:.14s; }
-  .mobile-menu.open a:nth-child(3){ transition-delay:.20s; }
-  .mobile-menu.open a:nth-child(4){ transition-delay:.26s; }
-  .mobile-menu.open a:nth-child(5){ transition-delay:.32s; }
-  .mobile-menu-foot{
-    margin-top:28px;
-    font-size:.78rem;
-    letter-spacing:.08em;
-    color:var(--accent-soft);
-    text-transform:uppercase;
-  }
-
-  /* ---------------------------------- */
-  /* HERO                                */
-  /* ---------------------------------- */
-  .hero{
-    min-height:100vh;
-    display:flex; align-items:center;
-    padding-top:110px; padding-bottom:70px;
-    position:relative;
-  }
-  .hero-route{
-    position:absolute; inset:0;
-    z-index:0; pointer-events:none;
-    opacity:.9;
-  }
-  .hero-route svg{ width:100%; height:100%; }
-  .hero-route path{
-    fill:none; stroke:var(--accent-soft); stroke-width:1.2;
-    stroke-dasharray:1400; stroke-dashoffset:1400;
-  }
-  .hero-route path.drawn{ animation:drawRoute2 2.4s var(--ease) forwards; }
-  @keyframes drawRoute2{ to{ stroke-dashoffset:0; } }
-
-  .hero-grid{
-    position:relative; z-index:1;
-    display:grid; gap:40px;
-  }
-  @media(min-width:960px){
-    .hero-grid{ grid-template-columns:1.3fr .8fr; align-items:end; gap:60px; }
-  }
-
-  .hero-title{
-    font-size:clamp(2.9rem, 8.4vw, 5.6rem);
-    line-height:.96;
-    font-weight:400;
-  }
-  .hero-title em{ font-style:italic; color:var(--accent-deep); font-weight:400; }
-
-  .hero-role{
-    margin-top:20px;
-    font-size:clamp(1.05rem, 2.4vw, 1.4rem);
-    letter-spacing:.02em;
-    color:var(--anthracite-soft);
-    font-family:'Fraunces', serif;
-    font-style:italic;
-  }
-
-  .hero-line{
-    margin-top:22px;
-    font-size:1.05rem;
-    color:var(--anthracite-soft);
-    max-width:36ch;
-  }
-
-  .hero-tags{
-    margin-top:30px;
-    display:flex; flex-wrap:wrap; gap:10px;
-  }
-  .tag-pill{
-    font-size:.72rem;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    font-weight:600;
-    padding:9px 16px;
-    border:1px solid var(--gris-clair);
-    border-radius:100px;
-    background:var(--blanc-casse);
-    color:var(--anthracite-soft);
-  }
-
-  .hero-actions{
-    margin-top:36px;
-    display:flex; flex-wrap:wrap; gap:14px;
-  }
-  .btn{
-    display:inline-flex; align-items:center; gap:10px;
-    font-size:.78rem; letter-spacing:.09em; text-transform:uppercase; font-weight:600;
-    padding:15px 26px;
-    border-radius:100px;
-    cursor:pointer;
-    border:1px solid transparent;
-    transition:transform .35s var(--ease), background .3s, color .3s, border-color .3s;
-  }
-  .btn:hover{ transform:translateY(-2px); }
-  .btn-primary{ background:var(--anthracite); color:var(--blanc-casse); }
-  .btn-primary:hover{ background:var(--accent-deep); }
-  .btn-ghost{ border-color:var(--anthracite); color:var(--anthracite); }
-  .btn-ghost:hover{ background:var(--anthracite); color:var(--blanc-casse); }
-
-  .hero-photo-zone{
-    position:relative;
-    display:flex; justify-content:center;
-  }
-  .photo-frame{
-    width:min(300px, 62vw);
-    aspect-ratio:1;
-    border-radius:50%;
-    position:relative;
-    padding:10px;
-    background:linear-gradient(160deg, var(--accent-soft), var(--accent) 78%);
-    box-shadow:0 30px 60px -25px rgba(191,106,61,.45);
-  }
-  .photo-frame::before{
-    content:'';
-    position:absolute; inset:16px;
-    border-radius:50%;
-    border:1px solid rgba(250,247,241,.5);
-    z-index:2;
-    pointer-events:none;
-  }
-  .photo-frame img{
-    width:100%; height:100%;
-    border-radius:50%;
-    object-fit:cover;
-    display:block;
-  }
-
-  /* ---------------------------------- */
-  /* SECTION HEADERS / GENERIC           */
-  /* ---------------------------------- */
-  .section{ padding-block:100px; }
-  @media(min-width:768px){ .section{ padding-block:140px; } }
-
-  .section-head{
-    max-width:640px;
-    margin-bottom:56px;
-  }
-  .section-head h2{
-    margin-top:14px;
-    font-size:clamp(2rem, 5vw, 3.1rem);
-    line-height:1.04;
-    font-weight:400;
-  }
-  .section-head h2 em{ font-style:italic; color:var(--accent-deep); }
-
-  [data-reveal]{
-    opacity:0;
-    transform:translateY(28px);
-    transition:opacity .9s var(--ease), transform .9s var(--ease);
-  }
-  [data-reveal].in-view{ opacity:1; transform:translateY(0); }
-  [data-reveal-delay="1"]{ transition-delay:.08s; }
-  [data-reveal-delay="2"]{ transition-delay:.16s; }
-  [data-reveal-delay="3"]{ transition-delay:.24s; }
-  [data-reveal-delay="4"]{ transition-delay:.32s; }
-  [data-reveal-delay="5"]{ transition-delay:.4s; }
-  [data-reveal-delay="6"]{ transition-delay:.48s; }
-
-  /* ---------------------------------- */
-  /* PROFIL                              */
-  /* ---------------------------------- */
-  .profil-grid{
-    display:grid; gap:44px;
-  }
-  @media(min-width:900px){
-    .profil-grid{ grid-template-columns:1fr 1fr; gap:70px; align-items:start; }
-  }
-  .profil-text p{
-    font-size:1.18rem;
-    line-height:1.7;
-    color:var(--anthracite-soft);
-  }
-  .profil-text p + p{ margin-top:20px; }
-
-  .qualities-list{
-    list-style:none; margin:0; padding:0;
-    display:grid; grid-template-columns:1fr 1fr; gap:0;
-    border-top:1px solid var(--gris-clair);
-  }
-  .qualities-list li{
-    padding:22px 0;
-    border-bottom:1px solid var(--gris-clair);
-    font-family:'Fraunces', serif;
-    font-size:1.3rem;
-  }
-  .qualities-list li:nth-child(odd){ border-right:1px solid var(--gris-clair); padding-right:16px; }
-  .qualities-list li:nth-child(even){ padding-left:16px; }
-  .qualities-list li span{
-    display:block;
-    font-family:'Work Sans', sans-serif;
-    font-size:.66rem;
-    letter-spacing:.16em;
-    color:var(--accent-deep);
-    font-weight:600;
-    margin-bottom:6px;
-  }
-
-  /* ---------------------------------- */
-  /* TRANSFERABLE SKILLS                 */
-  /* ---------------------------------- */
-  .transfer-section{ background:var(--blanc-casse); }
-  .transfer-grid{
-    display:grid; gap:1px;
-    background:var(--gris-clair);
-    border:1px solid var(--gris-clair);
-  }
-  @media(min-width:700px){ .transfer-grid{ grid-template-columns:1fr 1fr; } }
-  @media(min-width:1050px){ .transfer-grid{ grid-template-columns:1fr 1fr 1fr; } }
-  .transfer-card{
-    background:var(--blanc-casse);
-    padding:38px 32px;
-    transition:background .4s;
-  }
-  .transfer-card:hover{ background:var(--ivoire); }
-  .transfer-num{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    font-size:.95rem;
-    color:var(--accent-deep);
-  }
-  .transfer-card h3{
-    margin-top:14px;
-    font-size:1.15rem;
-    font-weight:500;
-    letter-spacing:.01em;
-  }
-  .transfer-card p{
-    margin-top:12px;
-    font-size:.94rem;
-    color:var(--anthracite-soft);
-    line-height:1.6;
-  }
-
-  /* ---------------------------------- */
-  /* TIMELINE                            */
-  /* ---------------------------------- */
-  .timeline{
-    position:relative;
-    margin-top:20px;
-    padding-left:32px;
-  }
-  @media(min-width:600px){ .timeline{ padding-left:48px; } }
-  .timeline::before{
-    content:'';
-    position:absolute; left:0; top:6px; bottom:6px; width:1px;
-    background:var(--gris-clair);
-  }
-  .timeline-progress{
-    position:absolute; left:0; top:6px; width:1px;
-    background:var(--accent);
-    height:0;
-    transition:height 1.4s var(--ease);
-  }
-  .timeline-item{
-    position:relative;
-    padding-bottom:64px;
-  }
-  .timeline-item:last-child{ padding-bottom:0; }
-  .timeline-dot{
-    position:absolute; left:-32px; top:4px;
-    width:11px; height:11px; border-radius:50%;
-    background:var(--blanc-casse);
-    border:2px solid var(--accent);
-  }
-  @media(min-width:600px){ .timeline-dot{ left:-48px; } }
-  .timeline-period{
-    font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
-    color:var(--accent-deep);
-  }
-  .timeline-item h3{
-    margin-top:8px;
-    font-size:1.5rem;
-    font-weight:500;
-  }
-  .timeline-item .role{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    color:var(--anthracite-soft);
-    margin-top:2px;
-    font-size:1.02rem;
-  }
-  .timeline-item ul{
-    margin:16px 0 0; padding:0; list-style:none;
-    display:grid; gap:8px;
-  }
-  .timeline-item ul li{
-    font-size:.94rem;
-    color:var(--anthracite-soft);
-    padding-left:18px;
-    position:relative;
-  }
-  .timeline-item ul li::before{
-    content:'';
-    position:absolute; left:0; top:9px;
-    width:6px; height:1px;
-    background:var(--accent);
-  }
-
-  /* ---------------------------------- */
-  /* SKILLS BLOCKS                       */
-  /* ---------------------------------- */
-  .skills-section{ background:var(--blanc-casse); }
-  .skills-grid{
-    display:grid; grid-template-columns:repeat(2, 1fr); gap:14px;
-  }
-  @media(min-width:700px){ .skills-grid{ grid-template-columns:repeat(4, 1fr); gap:16px; } }
-  .skill-block{
-    padding:26px 18px;
-    background:var(--ivoire);
-    border:1px solid var(--gris-clair);
-    border-radius:4px;
-    text-align:center;
-    transition:border-color .35s, transform .35s var(--ease);
-  }
-  .skill-block:hover{ border-color:var(--accent); transform:translateY(-3px); }
-  .skill-block span{
-    font-family:'Fraunces', serif;
-    font-size:1rem;
-    letter-spacing:.01em;
-  }
-
-  /* ---------------------------------- */
-  /* MOBILITY (dark section)             */
-  /* ---------------------------------- */
-  .mobility-section{
-    background:var(--anthracite);
-    color:var(--ivoire);
-    overflow:hidden;
-  }
-  .mobility-section .eyebrow{ color:var(--accent-soft); }
-  .mobility-section .section-head h2{ color:var(--ivoire); }
-  .mobility-section .section-head h2 em{ color:var(--accent-soft); }
-
-  .mobility-grid{
-    display:grid; gap:44px;
-  }
-  @media(min-width:900px){ .mobility-grid{ grid-template-columns:1fr 1fr; gap:70px; align-items:center; } }
-
-  .mobility-facts{
-    display:grid; gap:1px;
-    background:rgba(250,247,241,.14);
-    border:1px solid rgba(250,247,241,.14);
-  }
-  .mobility-fact{
-    background:var(--anthracite);
-    padding:26px 24px;
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .mobility-fact .label{
-    font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(250,247,241,.65);
-  }
-  .mobility-fact .value{
-    font-family:'Fraunces', serif;
-    font-size:1.3rem;
-    color:var(--accent-soft);
-  }
-  .mobility-note{
-    margin-top:26px;
-    font-size:1.05rem;
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    color:rgba(250,247,241,.85);
-    line-height:1.6;
-  }
-
-  .route-visual{
-    position:relative;
-    aspect-ratio:4/3;
-  }
-  .route-visual svg{ width:100%; height:100%; }
-  .route-visual path{
-    fill:none; stroke:var(--accent-soft); stroke-width:1.2;
-    stroke-dasharray:1000; stroke-dashoffset:1000;
-    transition:stroke-dashoffset 1.8s var(--ease);
-  }
-  .route-visual.in-view path{ stroke-dashoffset:0; }
-  .route-visual circle{ fill:var(--accent); }
-
-  /* ---------------------------------- */
-  /* OBJECTIF                            */
-  /* ---------------------------------- */
-  .objectif-section{ text-align:center; }
-  .objectif-section .section-head{ margin:0 auto 40px; text-align:center; }
-  .objectif-title{
-    font-size:clamp(2.4rem, 7vw, 4.4rem);
-    line-height:1.08;
-    max-width:16ch;
-    margin:0 auto;
-  }
-  .objectif-title em{ font-style:italic; color:var(--accent-deep); }
-  .objectif-quote{
-    max-width:52ch;
-    margin:34px auto 0;
-    font-size:1.15rem;
-    color:var(--anthracite-soft);
-    line-height:1.75;
-  }
-
-  /* ---------------------------------- */
-  /* CONTACT                             */
-  /* ---------------------------------- */
-  .contact-section{
-    background:var(--accent);
-    color:var(--blanc-casse);
-    position:relative;
-    overflow:hidden;
-  }
-  .contact-section .eyebrow{ color:rgba(255,253,249,.75); }
-  .contact-title{
-    font-size:clamp(2.6rem, 8vw, 5rem);
-    line-height:.98;
-    color:var(--blanc-casse);
-  }
-  .contact-grid{
-    margin-top:50px;
-    display:grid; gap:36px;
-  }
-  @media(min-width:800px){ .contact-grid{ grid-template-columns:1fr 1fr; align-items:end; } }
-  .contact-details p{ font-size:1.2rem; }
-  .contact-details .cname{
-    font-family:'Fraunces', serif;
-    font-size:1.6rem;
-    margin-bottom:6px;
-  }
-  .contact-details a{
-    display:block;
-    margin-top:6px;
-    font-size:1.05rem;
-    border-bottom:1px solid rgba(255,253,249,.4);
-    width:fit-content;
-    padding-bottom:2px;
-    transition:border-color .3s, opacity .3s;
-  }
-  .contact-details a:hover{ border-color:var(--blanc-casse); }
-
-  .contact-actions{ display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
-  @media(min-width:800px){ .contact-actions{ align-items:flex-end; } }
-  .btn-light{ background:var(--anthracite); color:var(--blanc-casse); }
-  .btn-light:hover{ background:var(--blanc-casse); color:var(--anthracite); }
-  .btn-outline-light{ border:1px solid rgba(255,253,249,.6); color:var(--blanc-casse); }
-  .btn-outline-light:hover{ background:var(--blanc-casse); color:var(--accent-deep); border-color:var(--blanc-casse); }
-
-  /* ---------------------------------- */
-  /* FOOTER                              */
-  /* ---------------------------------- */
-  footer{
-    background:var(--anthracite);
-    color:rgba(250,247,241,.6);
-    padding:44px 24px;
-    text-align:center;
-  }
-  @media(min-width:768px){ footer{ padding:54px 48px; } }
-  footer .fname{
-    font-family:'Fraunces', serif;
-    font-size:1.1rem;
-    color:var(--ivoire);
-  }
-  footer .frole{
-    margin-top:6px;
-    font-size:.72rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--accent-soft);
-  }
-  footer .fcontact{
-    margin-top:16px;
-    font-size:.85rem;
-    display:flex; gap:16px; justify-content:center; flex-wrap:wrap;
-  }
-  footer .fcontact a{ color:rgba(250,247,241,.6); transition:color .3s; }
-  footer .fcontact a:hover{ color:var(--accent-soft); }
-
-  /* ---------------------------------- */
-  /* PRINT                               */
-  /* ---------------------------------- */
-  @media print{
-    #loader, header.site-nav, .mobile-menu, .hero-route, .route-visual, .btn{ display:none !important; }
-    body{ background:#fff; color:#000; }
-    .section{ padding-block:24px; }
-    .mobility-section, .contact-section{ background:#fff !important; color:#000 !important; }
-  }
-</style>
+<link rel="preconnect" href="https://res.cloudinary.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,340;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="no-scroll">
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<!-- ============================================================ -->
+<!-- GRAIN OVERLAY -->
+<!-- ============================================================ -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============================================================ -->
+<!-- CUSTOM CURSOR -->
+<!-- ============================================================ -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor-dot"></span>
+  <span class="cursor-ring"></span>
+  <span class="cursor-label" id="cursorLabel"></span>
+</div>
 
 <!-- ============================================================ -->
 <!-- LOADER -->
@@ -786,13 +43,28 @@
         <path class="route-path" d="M -20 150 C 120 40, 220 190, 340 90 S 560 30, 640 70" />
       </svg>
     </div>
+    <p class="loader-eyebrow">CV digital</p>
     <h1 class="loader-name">
-      <span class="n1"><em>Marion</em></span>
-      <span class="n2"><em>Lopez</em></span>
+      <span class="l-line"><em class="l-1">Marion</em></span>
+      <span class="l-line"><em class="l-2">Lopez</em></span>
     </h1>
-    <p class="loader-role">Livreuse de repas à domicile</p>
-    <p class="loader-tags">Sérieuse — Ponctuelle — Autonome</p>
+    <div class="loader-foot">
+      <p class="loader-role">Livreuse de repas à domicile</p>
+      <p class="loader-count" id="loaderCount">00</p>
+    </div>
+    <div class="loader-bar"><span id="loaderBarFill"></span></div>
   </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SCROLL PROGRESS (desktop) -->
+<!-- ============================================================ -->
+<div class="scroll-route" id="scrollRoute" aria-hidden="true">
+  <svg viewBox="0 0 20 400" preserveAspectRatio="none">
+    <line x1="10" y1="0" x2="10" y2="400" class="scroll-route-track"/>
+    <line x1="10" y1="0" x2="10" y2="0" id="scrollRouteFill" class="scroll-route-fill"/>
+  </svg>
+  <span class="scroll-route-pin" id="scrollRoutePin"></span>
 </div>
 
 <!-- ============================================================ -->
@@ -804,12 +76,12 @@
     <small>Livreuse de repas à domicile</small>
   </a>
   <nav class="desktop-links" aria-label="Navigation principale">
-    <a href="#accueil">Accueil</a>
-    <a href="#profil">Profil</a>
-    <a href="#parcours">Parcours</a>
-    <a href="#competences">Compétences</a>
-    <a href="#objectif">Objectif</a>
-    <a href="#contact">Contact</a>
+    <a href="#accueil" data-section="accueil">Accueil</a>
+    <a href="#profil" data-section="profil">Profil</a>
+    <a href="#parcours" data-section="parcours">Parcours</a>
+    <a href="#competences" data-section="competences">Compétences</a>
+    <a href="#mobilite" data-section="mobilite">Mobilité</a>
+    <a href="#contact" data-section="contact">Contact</a>
   </nav>
   <a href="#contact" class="nav-cta">Me contacter</a>
   <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -818,15 +90,18 @@
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#accueil">Accueil</a>
-  <a href="#profil">Profil</a>
-  <a href="#parcours">Parcours</a>
-  <a href="#competences">Compétences</a>
-  <a href="#objectif">Objectif</a>
-  <a href="#contact">Contact</a>
+  <nav aria-label="Navigation mobile">
+    <a href="#accueil"><span>01</span>Accueil</a>
+    <a href="#profil"><span>02</span>Profil</a>
+    <a href="#parcours"><span>03</span>Parcours</a>
+    <a href="#competences"><span>04</span>Compétences</a>
+    <a href="#mobilite"><span>05</span>Mobilité</a>
+    <a href="#contact"><span>06</span>Contact</a>
+  </nav>
   <p class="mobile-menu-foot">06.75.87.55.83 — Montelier</p>
 </div>
 
+<main id="contenu">
 <!-- ============================================================ -->
 <!-- HERO -->
 <!-- ============================================================ -->
@@ -834,43 +109,56 @@
   <div class="hero-route" aria-hidden="true">
     <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
       <path id="heroPath" d="M -50 620 C 200 500, 320 700, 520 560 S 820 380, 950 460 S 1180 300, 1300 340" />
+      <circle class="hero-pin" cx="-50" cy="620" r="5"></circle>
     </svg>
   </div>
+
   <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow" data-reveal>Curriculum vitae digital</p>
-      <h1 class="hero-title" data-reveal data-reveal-delay="1">Marion <em>Lopez</em></h1>
+    <div class="hero-copy">
+      <p class="eyebrow" data-reveal>CV digital — Édition 2026</p>
+      <h1 class="hero-title">
+        <span class="split-line" data-split>Marion</span>
+        <span class="split-line accent" data-split>Lopez</span>
+      </h1>
       <p class="hero-role" data-reveal data-reveal-delay="2">Livreuse de repas à domicile</p>
-      <p class="hero-line" data-reveal data-reveal-delay="3">Sérieuse, ponctuelle et autonome, au service des particuliers depuis plusieurs années.</p>
+      <p class="hero-line" data-reveal data-reveal-delay="3">Sérieuse, ponctuelle et autonome, au service des particuliers depuis plusieurs années — prête à mettre cette rigueur au service de la livraison.</p>
 
       <div class="hero-tags" data-reveal data-reveal-delay="4">
         <span class="tag-pill">Permis B</span>
         <span class="tag-pill">Véhicule personnel</span>
-        <span class="tag-pill">Expérience auprès de particuliers</span>
+        <span class="tag-pill">3 ans d'expérience terrain</span>
       </div>
 
       <div class="hero-actions" data-reveal data-reveal-delay="5">
-        <a href="#profil" class="btn btn-primary">Voir mon profil</a>
-        <a href="https://res.cloudinary.com/dkm8cbylh/image/upload/fl_attachment/v1787221117/ChatGPT_Image_19_aou%CC%82t_2026_19_44_35_g0ote4.png" class="btn btn-ghost" download="CV-Marion-Lopez.png">Télécharger mon CV</a>
+        <a href="#parcours" class="btn btn-primary" data-magnetic><span>Découvrir son parcours</span></a>
+        <a href="https://res.cloudinary.com/dkm8cbylh/image/upload/fl_attachment/v1787221117/ChatGPT_Image_19_aou%CC%82t_2026_19_44_35_g0ote4.png" class="btn btn-ghost" data-magnetic download="CV-Marion-Lopez.png"><span>Télécharger le CV</span></a>
       </div>
     </div>
 
     <div class="hero-photo-zone" data-reveal data-reveal-delay="3">
-      <div class="photo-frame">
-        <!-- Photo Marion Lopez — hébergée sur Cloudinary -->
-        <img src="https://res.cloudinary.com/dkm8cbylh/image/upload/v1787219680/ChatGPT_Image_20_aou%CC%82t_2026_11_53_27_utahnb.png" alt="Portrait de Marion Lopez">
+      <div class="photo-frame" id="photoFrame">
+        <div class="photo-frame-inner">
+          <img src="https://res.cloudinary.com/dkm8cbylh/image/upload/f_auto,q_auto,w_900,h_900,c_fill,g_face/v1787219680/ChatGPT_Image_20_aou%CC%82t_2026_11_53_27_utahnb.png" alt="Portrait de Marion Lopez" width="900" height="900" loading="eager" fetchpriority="high">
+        </div>
+        <span class="photo-orbit-label">Montelier · 26</span>
       </div>
     </div>
+  </div>
+
+  <div class="hero-scrollcue" aria-hidden="true">
+    <span class="hero-scrollcue-line"></span>
+    <span>Faire défiler</span>
   </div>
 </section>
 
 <!-- ============================================================ -->
 <!-- ACCROCHE -->
 <!-- ============================================================ -->
-<section class="section" style="padding-block:70px;">
-  <div class="wrap" style="text-align:center;">
-    <h2 class="serif" data-reveal style="font-size:clamp(1.6rem, 4.6vw, 2.6rem); font-style:italic; font-weight:400; max-width:20ch; margin:0 auto; color:var(--anthracite-soft);">
-      « Le sérieux dans chaque <em style="color:var(--accent-deep); font-style:italic;">tournée.</em> »
+<section class="section quote-band">
+  <div class="wrap">
+    <span class="quote-mark" aria-hidden="true">“</span>
+    <h2 class="serif quote-band-text" data-reveal>
+      Le sérieux dans chaque <em>tournée.</em>
     </h2>
   </div>
 </section>
@@ -881,13 +169,13 @@
 <section class="section" id="profil">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <p class="eyebrow">Portrait</p>
+      <p class="eyebrow">01 — Portrait</p>
       <h2>Qui est <em>Marion ?</em></h2>
     </div>
 
     <div class="profil-grid">
       <div class="profil-text" data-reveal>
-        <p>Sérieuse, ponctuelle et autonome, Marion souhaite aujourd'hui s'orienter vers un poste de livreuse de repas à domicile.</p>
+        <p class="dropcap">Sérieuse, ponctuelle et autonome, Marion souhaite aujourd'hui s'orienter vers un poste de livreuse de repas à domicile.</p>
         <p>Grâce à son expérience auprès de particuliers, elle a développé un bon relationnel, le sens du service et l'habitude de respecter les horaires et les consignes.</p>
       </div>
 
@@ -907,38 +195,38 @@
 <section class="section transfer-section">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <p class="eyebrow">Ce que son parcours apporte</p>
+      <p class="eyebrow">02 — Ce que son parcours apporte</p>
       <h2>Des compétences <em>directement transférables</em></h2>
     </div>
 
-    <div class="transfer-grid">
-      <div class="transfer-card" data-reveal data-reveal-delay="1">
-        <p class="transfer-num">01</p>
+    <div class="manifesto-list">
+      <div class="manifesto-row" data-reveal>
+        <span class="manifesto-num">01</span>
         <h3>Respect des horaires</h3>
         <p>Habituée à intervenir chez différents particuliers dans le respect des horaires.</p>
       </div>
-      <div class="transfer-card" data-reveal data-reveal-delay="2">
-        <p class="transfer-num">02</p>
+      <div class="manifesto-row" data-reveal>
+        <span class="manifesto-num">02</span>
         <h3>Autonomie</h3>
         <p>Organisation autonome des interventions et des déplacements.</p>
       </div>
-      <div class="transfer-card" data-reveal data-reveal-delay="3">
-        <p class="transfer-num">03</p>
+      <div class="manifesto-row" data-reveal>
+        <span class="manifesto-num">03</span>
         <h3>Relation client</h3>
         <p>Expérience du contact direct avec les particuliers.</p>
       </div>
-      <div class="transfer-card" data-reveal data-reveal-delay="4">
-        <p class="transfer-num">04</p>
+      <div class="manifesto-row" data-reveal>
+        <span class="manifesto-num">04</span>
         <h3>Mobilité</h3>
         <p>Habituée aux déplacements réguliers.</p>
       </div>
-      <div class="transfer-card" data-reveal data-reveal-delay="5">
-        <p class="transfer-num">05</p>
+      <div class="manifesto-row" data-reveal>
+        <span class="manifesto-num">05</span>
         <h3>Sens du service</h3>
         <p>Expérience professionnelle centrée sur le service et la relation humaine.</p>
       </div>
-      <div class="transfer-card" data-reveal data-reveal-delay="6">
-        <p class="transfer-num">06</p>
+      <div class="manifesto-row" data-reveal>
+        <span class="manifesto-num">06</span>
         <h3>Fiabilité</h3>
         <p>Travail sérieux et respect des consignes.</p>
       </div>
@@ -952,15 +240,17 @@
 <section class="section" id="parcours">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <p class="eyebrow">Expérience</p>
+      <p class="eyebrow">03 — Expérience</p>
       <h2>Son <em>parcours</em></h2>
     </div>
 
     <div class="timeline" id="timeline">
-      <div class="timeline-progress" id="timelineProgress"></div>
+      <div class="timeline-route" aria-hidden="true"><span class="timeline-route-fill" id="timelineFill"></span></div>
 
       <div class="timeline-item" data-reveal>
-        <span class="timeline-dot"></span>
+        <span class="timeline-pin" data-pin>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7-6.2 7-12.2A7 7 0 0 0 5 9.8C5 15.8 12 22 12 22Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.8" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
         <p class="timeline-period">Depuis 3 ans</p>
         <h3>Shiva</h3>
         <p class="role">Aide ménagère chez des particuliers</p>
@@ -974,7 +264,9 @@
       </div>
 
       <div class="timeline-item" data-reveal>
-        <span class="timeline-dot"></span>
+        <span class="timeline-pin" data-pin>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7-6.2 7-12.2A7 7 0 0 0 5 9.8C5 15.8 12 22 12 22Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.8" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
         <p class="timeline-period">2013 — 2015</p>
         <h3>ADMR</h3>
         <p class="role">Aide à domicile</p>
@@ -988,7 +280,9 @@
       </div>
 
       <div class="timeline-item" data-reveal>
-        <span class="timeline-dot"></span>
+        <span class="timeline-pin" data-pin>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s7-6.2 7-12.2A7 7 0 0 0 5 9.8C5 15.8 12 22 12 22Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.8" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
         <p class="timeline-period">Expérience complémentaire</p>
         <h3>Ménage chez des particuliers</h3>
         <ul>
@@ -1008,19 +302,58 @@
 <section class="section skills-section" id="competences">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <p class="eyebrow">Savoir-être</p>
+      <p class="eyebrow">04 — Savoir-être</p>
       <h2>Ses <em>compétences</em></h2>
     </div>
 
+    <div class="stats-row" data-reveal data-reveal-delay="1">
+      <div class="stat">
+        <p class="stat-num"><span data-count="3">0</span><span class="stat-suffix">+</span></p>
+        <p class="stat-label">Ans d'expérience terrain</p>
+      </div>
+      <div class="stat">
+        <p class="stat-num"><span data-count="2">0</span></p>
+        <p class="stat-label">Structures &amp; particuliers</p>
+      </div>
+      <div class="stat">
+        <p class="stat-num">B</p>
+        <p class="stat-label">Permis, véhicule personnel</p>
+      </div>
+    </div>
+
     <div class="skills-grid">
-      <div class="skill-block" data-reveal data-reveal-delay="1"><span>Ponctualité</span></div>
-      <div class="skill-block" data-reveal data-reveal-delay="2"><span>Fiabilité</span></div>
-      <div class="skill-block" data-reveal data-reveal-delay="3"><span>Autonomie</span></div>
-      <div class="skill-block" data-reveal data-reveal-delay="4"><span>Organisation</span></div>
-      <div class="skill-block" data-reveal data-reveal-delay="1"><span>Relationnel</span></div>
-      <div class="skill-block" data-reveal data-reveal-delay="2"><span>Sens du service</span></div>
-      <div class="skill-block" data-reveal data-reveal-delay="3"><span>Respect des consignes</span></div>
-      <div class="skill-block" data-reveal data-reveal-delay="4"><span>Mobilité</span></div>
+      <div class="skill-block" data-reveal data-reveal-delay="1">
+        <svg class="skill-icon icon-clock" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><path class="hand" d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Ponctualité</span>
+      </div>
+      <div class="skill-block" data-reveal data-reveal-delay="2">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5.2c0 4.6-3 7.9-7 9.8-4-1.9-7-5.2-7-9.8V6l7-3Z" stroke="currentColor" stroke-width="1.5"/><path d="M9 12.2l2 2 4-4.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Fiabilité</span>
+      </div>
+      <div class="skill-block" data-reveal data-reveal-delay="3">
+        <svg class="skill-icon icon-compass" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"/><path class="needle" d="M15 9l-2 6-6 2 2-6 6-2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        <span>Autonomie</span>
+      </div>
+      <div class="skill-block" data-reveal data-reveal-delay="4">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Organisation</span>
+      </div>
+      <div class="skill-block" data-reveal data-reveal-delay="1">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8.5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 20c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 8.5a2.7 2.7 0 1 0-1.2-5.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15.2 15.2c2.6.3 4.8 2.1 4.8 4.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Relationnel</span>
+      </div>
+      <div class="skill-block" data-reveal data-reveal-delay="2">
+        <svg class="skill-icon icon-heart" viewBox="0 0 24 24" fill="none"><path d="M12 20s-7.3-4.4-9.4-9.1C1.3 7.7 3 4.7 6.2 4.3c2-.3 3.7.7 5.8 2.8 2.1-2.1 3.8-3.1 5.8-2.8 3.2.4 4.9 3.4 3.6 6.6C19.3 15.6 12 20 12 20Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <span>Sens du service</span>
+      </div>
+      <div class="skill-block" data-reveal data-reveal-delay="3">
+        <svg class="skill-icon" viewBox="0 0 24 24" fill="none"><path d="M4 6.5h16M4 12h16M4 17.5h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M17.5 15.5l1.6 1.6 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Respect des consignes</span>
+      </div>
+      <div class="skill-block" data-reveal data-reveal-delay="4">
+        <svg class="skill-icon icon-route" viewBox="0 0 24 24" fill="none"><circle cx="5.5" cy="18.5" r="2" stroke="currentColor" stroke-width="1.5"/><circle cx="18.5" cy="5.5" r="2" stroke="currentColor" stroke-width="1.5"/><path class="dash" d="M5.5 16.5v-3a4 4 0 0 1 4-4h5a4 4 0 0 0 4-4v-1.5" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 3"/></svg>
+        <span>Mobilité</span>
+      </div>
     </div>
   </div>
 </section>
@@ -1028,10 +361,10 @@
 <!-- ============================================================ -->
 <!-- MOBILITÉ -->
 <!-- ============================================================ -->
-<section class="section mobility-section">
+<section class="section mobility-section" id="mobilite">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <p class="eyebrow">Disponibilité terrain</p>
+      <p class="eyebrow">05 — Disponibilité terrain</p>
       <h2>Prête pour les <em>tournées</em></h2>
     </div>
 
@@ -1067,7 +400,7 @@
 <section class="section objectif-section" id="objectif">
   <div class="wrap">
     <div class="section-head" data-reveal>
-      <p class="eyebrow">Prochaine étape</p>
+      <p class="eyebrow">06 — Prochaine étape</p>
     </div>
     <h2 class="objectif-title serif" data-reveal data-reveal-delay="1">Un nouveau <em>départ.</em></h2>
     <p class="objectif-quote" data-reveal data-reveal-delay="2">Je souhaite aujourd'hui mettre mon expérience du contact avec les particuliers, mon autonomie et mon sens du service au service de la livraison de repas à domicile.</p>
@@ -1078,25 +411,31 @@
 <!-- CONTACT -->
 <!-- ============================================================ -->
 <section class="section contact-section" id="contact">
+  <div class="hero-route contact-route" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <path d="M -50 120 C 250 200, 350 20, 600 100 S 950 260, 1300 160" />
+    </svg>
+  </div>
   <div class="wrap">
     <p class="eyebrow" data-reveal>Prenons contact</p>
-    <h2 class="contact-title serif" data-reveal data-reveal-delay="1">Parlons-en.</h2>
+    <h2 class="contact-title serif" data-reveal data-reveal-delay="1"><span data-split-words>Parlons-en.</span></h2>
 
     <div class="contact-grid">
       <div class="contact-details" data-reveal data-reveal-delay="2">
         <p class="cname">Marion Lopez</p>
-        <p>Montelier</p>
-        <a href="tel:0675875583">06.75.87.55.83</a>
-        <a href="mailto:lopez.marion26120@gmail.com">lopez.marion26120@gmail.com</a>
+        <p class="cplace">Montelier <span class="clock" id="localClock" aria-label="Heure locale à Montelier"></span></p>
+        <a href="tel:0675875583" data-magnetic>06.75.87.55.83</a>
+        <a href="mailto:lopez.marion26120@gmail.com" data-magnetic>lopez.marion26120@gmail.com</a>
       </div>
 
       <div class="contact-actions" data-reveal data-reveal-delay="3">
-        <a href="tel:0675875583" class="btn btn-light">Me contacter</a>
-        <a href="https://res.cloudinary.com/dkm8cbylh/image/upload/fl_attachment/v1787221117/ChatGPT_Image_19_aou%CC%82t_2026_19_44_35_g0ote4.png" class="btn btn-outline-light" download="CV-Marion-Lopez.png">Télécharger mon CV</a>
+        <a href="tel:0675875583" class="btn btn-light" data-magnetic><span>Me contacter</span></a>
+        <a href="https://res.cloudinary.com/dkm8cbylh/image/upload/fl_attachment/v1787221117/ChatGPT_Image_19_aou%CC%82t_2026_19_44_35_g0ote4.png" class="btn btn-outline-light" data-magnetic download="CV-Marion-Lopez.png"><span>Télécharger le CV</span></a>
       </div>
     </div>
   </div>
 </section>
+</main>
 
 <!-- ============================================================ -->
 <!-- FOOTER -->
@@ -1108,105 +447,11 @@
     <a href="tel:0675875583">06.75.87.55.83</a>
     <a href="mailto:lopez.marion26120@gmail.com">lopez.marion26120@gmail.com</a>
   </div>
+  <p class="fyear">© <span id="fYear">2026</span> — Montelier</p>
 </footer>
 
-<script>
-(function(){
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var body = document.body;
-  var loader = document.getElementById('loader');
-
-  function endLoader(){
-    body.classList.remove('no-scroll');
-    if(loader){
-      loader.classList.add('hide');
-      setTimeout(function(){ loader.style.display='none'; }, 950);
-    }
-    var heroPath = document.getElementById('heroPath');
-    if(heroPath){ heroPath.classList.add('drawn'); }
-  }
-
-  if(reduceMotion){
-    endLoader();
-  } else {
-    setTimeout(endLoader, 2650);
-  }
-
-  /* NAV scroll state */
-  var nav = document.getElementById('siteNav');
-  function onScroll(){
-    if(window.scrollY > 40){ nav.classList.add('scrolled'); }
-    else{ nav.classList.remove('scrolled'); }
-  }
-  window.addEventListener('scroll', onScroll, { passive:true });
-  onScroll();
-
-  /* Mobile menu */
-  var burger = document.getElementById('burgerBtn');
-  var menu = document.getElementById('mobileMenu');
-  burger.addEventListener('click', function(){
-    var open = menu.classList.toggle('open');
-    burger.classList.toggle('open', open);
-    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    body.classList.toggle('no-scroll', open);
-  });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      menu.classList.remove('open');
-      burger.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-      body.classList.remove('no-scroll');
-    });
-  });
-
-  /* Scroll reveal */
-  var revealEls = document.querySelectorAll('[data-reveal]');
-  if('IntersectionObserver' in window && !reduceMotion){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('in-view');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold:.15, rootMargin:'0px 0px -8% 0px' });
-    revealEls.forEach(function(el){ io.observe(el); });
-  } else {
-    revealEls.forEach(function(el){ el.classList.add('in-view'); });
-  }
-
-  /* Timeline progress line */
-  var timeline = document.getElementById('timeline');
-  var progress = document.getElementById('timelineProgress');
-  if(timeline && progress){
-    var tio = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          progress.style.height = timeline.offsetHeight + 'px';
-        }
-      });
-    }, { threshold:.1 });
-    tio.observe(timeline);
-  }
-
-  /* Route visual reveal */
-  var routeVisual = document.getElementById('routeVisual');
-  if(routeVisual && 'IntersectionObserver' in window){
-    var rio = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('in-view');
-          rio.unobserve(entry.target);
-        }
-      });
-    }, { threshold:.3 });
-    rio.observe(routeVisual);
-  } else if(routeVisual){
-    routeVisual.classList.add('in-view');
-  }
-
-})();
-</script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
